@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CustomerDetails" targetNamespace="http://ibm.com/CustomerDetails/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ibm.com/CustomerDetails/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:documentation>Definition for a web service called CustomerDetails,
+		which can be used to add or retrieve customers from a collection.
+	<wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedXSD location="createcustomer_InlineSchema1.xsd"/>
+        <binding hasEncoding="false" imported="true" name="CustomerDetailsSOAP" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+
+	<!--
+		The `types` element defines the data types (XML elements)
+		that are used by the web service.
+	 -->
+	<wsdl:types>
+		
+        	<xsd:schema targetNamespace="http://ibm.com/CustomerDetails/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+<xsd:include schemaLocation="createcustomer_inline_schema.xsd"/>
+    </xsd:schema>
+    </wsdl:types>
+
+
+	<!--
+		A wsdl `message` element is used to define a message
+		exchanged between a web service, consisting of zero
+		or more `part`s.
+	 -->
+
+
+	<wsdl:message name="customer_details">
+		<wsdl:part element="tns:customer_details" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="customer_details_response">
+		<wsdl:part element="tns:customer_details_response" name="parameters"/>
+	</wsdl:message>
+
+
+	<!--
+		A WSDL `portType` is used to combine multiple `message`s
+		(e.g. input, output) into a single operation.
+
+		Here we define three synchronous (input/output) operations
+		and the `message`s that must be used for each.
+	 -->
+	<wsdl:portType name="CustomerDetails">
+		<wsdl:operation name="CustomerDetails">
+			<wsdl:input message="tns:customer_details"/>
+			<wsdl:output message="tns:customer_details_response"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<!--
+		The `binding` element defines exactly how each
+		`operation` will take place over the network.
+		In this case, we are using SOAP.
+	 -->
+	<wsdl:binding name="CustomerDetailsSOAP" type="tns:CustomerDetails">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="CustomerDetails">
+			<soap:operation soapAction="http://ibm.com/CustomerDetails/"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<!--
+		The `service` element finally says where the service
+		can be accessed from - in other words, its endpoint.
+	 -->
+	<wsdl:service name="CustomerDetails">
+		<wsdl:port binding="tns:CustomerDetailsSOAP" name="CustomerDetailsSOAP">
+			<soap:address location="http://www.example.org/CustomerDetails"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

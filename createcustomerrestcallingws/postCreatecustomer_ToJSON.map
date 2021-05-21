@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="/createcustomer_inline_schema.xsd" var="var2"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var3"/>
+    <output derivedFrom="MB:JSON_schema_in_swagger_document" path="/swagger.json" var="var4"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="in" uri="http://ibm.com/CustomerDetails/"/>
+        <namespace kind="supplement" prefix="out" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="postCreatecustomer_ToJSON">
+        <input namespace="http://ibm.com/CustomerDetails/" path="$var2/mb:msg(customer_details_response,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_customer_details_response"/>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var3/mb:msg(JSON,assembly,JSON,Properties)" var="MessageAssembly">
+            <cast derivedFrom="MB:JSON_operation_response" path="$MessageAssembly/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}customerResponse" ref="var4"/>
+        </output>
+        <move>
+            <input path="$ComIbmMessageAssembly_customer_details_response/customer_details_response/status"/>
+            <output path="$MessageAssembly/JSON/spath('Data',2)/status"/>
+        </move>
+        <move>
+            <input path="$ComIbmMessageAssembly_customer_details_response/customer_details_response/customer_id" var="customer_id1"/>
+            <output path="$MessageAssembly/JSON/spath('Data',2)/customerId"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

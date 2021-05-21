@@ -1,0 +1,60 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "createcustomerrestcallingws",
+    "version" : "1.0.0",
+    "description" : "createcustomerrestcallingws"
+  },
+  "paths" : {
+    "/createcustomer" : {
+      "post" : {
+        "operationId" : "postCreatecustomer",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful."
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a createcustomer",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/customerRequest"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/createcustomerrestcallingws/v1",
+  "definitions" : {
+    "customerRequest" : {
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        }
+      }
+    },
+    "customerResponse" : {
+      "type" : "object",
+      "properties" : {
+        "status" : {
+          "type" : "string"
+        },
+        "customerId" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

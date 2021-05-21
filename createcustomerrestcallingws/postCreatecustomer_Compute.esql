@@ -1,0 +1,11 @@
+
+
+CREATE COMPUTE MODULE postCreatecustomer_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputLocalEnvironment.Destination.SOAP.Request.Transport.HTTP.WebServiceURL = 'http://localhost:7800/CustomerDetails';
+		RETURN TRUE;
+	END;
+
+	
+END MODULE;
