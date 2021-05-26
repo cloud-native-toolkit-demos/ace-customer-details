@@ -1,0 +1,22 @@
+
+
+Importing file: /Users/mohammed.miaibm.com/workspace/work/learning/ace/ace-rest-ws/stuff/customerDetails.wsdl
+
+The WSDL import will proceed with bindings CustomerDetailsPortSoap11.
+Creating wsdl schema document for file:///Users/mohammed.miaibm.com/workspace/work/learning/ace/ace-rest-ws/stuff/customerDetails.wsdl.
+Parsing wsdl binding {http://ibm.com/CustomerDetails}CustomerDetailsPortSoap11.
+Parsing wsdl binding input customerDetails.
+Parsing wsdl binding output customerDetails.
+Processing doc style for operation customerDetails.
+Populating WSDL schema customerDetails.xsd.
+Creating file customerDetails.xsd in the workspace.
+Creating file /createcustomerrestcallingws/customerDetails_InlineSchema1.xsd in the workspace.
+Copying source WSDL customerDetails.wsdl to customerDetails.wsdl.
+
+Elapsed time processing this message definition file: 0.073 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

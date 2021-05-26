@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ibm.com/CustomerDetails/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:sch="http://ibm.com/CustomerDetails/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ibm.com/CustomerDetails/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+
+    <xsd:complexType name="customer_details">
+        <xsd:sequence>
+            <xsd:element name="service_header">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="brand" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="personal_details">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="name_details">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="first_name">
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:string">
+                                                <xsd:maxLength value="25"/>
+                                            </xsd:restriction>
+                                        </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="last_name">
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:string">
+                                                <xsd:maxLength value="25"/>
+                                            </xsd:restriction>
+                                        </xsd:simpleType>
+                                    </xsd:element>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="contact_details">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="phone">
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:string">
+                                                <xsd:pattern value="[0-9]{3}-[0-9]{7}"/>
+                                            </xsd:restriction>
+                                        </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="address">
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:string">
+                                                <xsd:maxLength value="100"/>
+                                            </xsd:restriction>
+                                        </xsd:simpleType>
+                                    </xsd:element>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:element ibmSchExtn:docRoot="true" name="customerDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="customer_details" type="tns:customer_details"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element ibmSchExtn:docRoot="true" name="customerDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="status" type="xsd:string"/>
+                <xsd:element name="customer_id" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+</xsd:schema>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ibm.com/CustomerDetails" xmlns:sch="http://ibm.com/CustomerDetails/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ibm.com/CustomerDetails">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedXSD location="customerDetails_InlineSchema1.xsd"/>
+        <binding hasEncoding="false" imported="true" name="CustomerDetailsPortSoap11" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    
+          <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ibm.com/CustomerDetails/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:tns="http://ibm.com/CustomerDetails/">
+
+
+<xsd:include schemaLocation="customerDetails_InlineSchema1.xsd"/>
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="customerDetailsResponse">
+    <wsdl:part element="sch:customerDetailsResponse" name="customerDetailsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="customerDetailsRequest">
+    <wsdl:part element="sch:customerDetailsRequest" name="customerDetailsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerDetailsPort">
+    <wsdl:operation name="customerDetails">
+      <wsdl:input message="tns:customerDetailsRequest" name="customerDetailsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:customerDetailsResponse" name="customerDetailsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerDetailsPortSoap11" type="tns:CustomerDetailsPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="customerDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="customerDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="customerDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerDetailsPortService">
+    <wsdl:port binding="tns:CustomerDetailsPortSoap11" name="CustomerDetailsPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

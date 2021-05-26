@@ -13,7 +13,7 @@
       <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output_1" location="1064,182">
         <translation xmi:type="utility:TranslatableString" key="Output" bundleName="postCreatecustomer" pluginId="createcustomerrestcallingws"/>
       </nodes>
-      <nodes xmi:type="ComIbmSOAPRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="378,94" wsdlFileName="createcustomer.wsdl" selectedPortType="CustomerDetails" selectedBinding="CustomerDetailsSOAP" selectedOperation="CustomerDetails" selectedPort="CustomerDetailsSOAP" targetNamespace="http://ibm.com/CustomerDetails/" useHTTPTransport="true" webServiceURL="http://wombat" sslProtocol="TLS">
+      <nodes xmi:type="ComIbmSOAPRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="378,94" wsdlOperationMode="gateway" wsdlFileName="createcustomer.wsdl" selectedPortType="CustomerDetails" selectedBinding="CustomerDetailsSOAP" selectedOperation="CustomerDetails" selectedPort="CustomerDetailsSOAP" useHTTPTransport="true" webServiceURL="http://wombat" sslProtocol="SSL" keyAlias="ibm-ace-server" parserXmlnscBuildTreeUsingXMLSchema="false" validateMaster="none">
         <translation xmi:type="utility:ConstantString" string="SOAP Request"/>
       </nodes>
       <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="155,172" mappingExpression="msl://{default}#postCreatecustomer_JSONtoSOAP">
@@ -22,11 +22,12 @@
       <nodes xmi:type="ComIbmSOAPExtract.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="534,172">
         <translation xmi:type="utility:ConstantString" string="SOAP Extract"/>
       </nodes>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="885,178" mappingExpression="msl://{default}#postCreatecustomer_ToJSON">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="810,174" mappingExpression="msl://{default}#postCreatecustomer_ToJSON">
         <translation xmi:type="utility:ConstantString" string="ToJSON"/>
       </nodes>
-      <nodes xmi:type="ComIbmHTTPHeader.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="709,173" httpResponseHeader="DeleteHeader">
+      <nodes xmi:type="ComIbmHTTPHeader.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="664,169" httpResponseHeader="DeleteHeader" httpReplyHeader="Add">
         <translation xmi:type="utility:ConstantString" string="HTTP Header"/>
+        <nameValue4ReplyHeader name="Content-Type" value="application/json"/>
       </nodes>
       <nodes xmi:type="ComIbmJavaCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="242,177" javaClass="com.ibm.ace.SetUpDesitination">
         <translation xmi:type="utility:ConstantString" string="Set up desitination"/>
@@ -34,10 +35,10 @@
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_3" sourceNode="InTerminal.Input_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="OutTerminal.Output_1" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
-      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
-      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_8" targetNode="FCMComposite_1_6" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_1" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_6" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
     </composition>
     <propertyOrganizer/>
     <stickyBoard/>
