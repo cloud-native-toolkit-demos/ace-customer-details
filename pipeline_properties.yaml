@@ -2,7 +2,7 @@ integrationServer:
   applicationNames:
     - createcustomerrestcallingws
   releaseName: create-customer-details-rest
-  path: createcustomerrestcallingws/v1/createcustomer
+  endpoint-path: createcustomerrestcallingws/v1/createcustomer
   configurations:
     setdbparms:
       - ibm-rest-dbparms.txt
