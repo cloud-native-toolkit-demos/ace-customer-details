@@ -1,0 +1,18 @@
+integrationServer:
+  applicationNames:
+    - createcustomerrestcallingws
+  releaseName: create-customer-details-rest
+  configurations:
+    setdbparms:
+      - ibm-rest-dbparms.txt
+    serverconf:
+      - ibm-rest-serverconf.yaml
+    policyproject:
+      - ibm-rest-policy.yaml
+    keystore:
+      - ibm-ace-server.kdb
+      - ibm-ace-server.sth
+      - ibm-ace-server.jks
+    truststore:
+      - ibm-ca.jks
+
