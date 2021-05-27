@@ -10,22 +10,22 @@
       <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input_1" location="39,173">
         <translation xmi:type="utility:TranslatableString" key="Input" bundleName="postCreatecustomer" pluginId="createcustomerrestcallingws"/>
       </nodes>
-      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output_1" location="1064,182">
+      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output_1" location="946,183">
         <translation xmi:type="utility:TranslatableString" key="Output" bundleName="postCreatecustomer" pluginId="createcustomerrestcallingws"/>
       </nodes>
-      <nodes xmi:type="ComIbmSOAPRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="378,94" wsdlOperationMode="gateway" wsdlFileName="createcustomer.wsdl" selectedPortType="CustomerDetails" selectedBinding="CustomerDetailsSOAP" selectedOperation="CustomerDetails" selectedPort="CustomerDetailsSOAP" useHTTPTransport="true" webServiceURL="http://wombat" sslProtocol="SSL" keyAlias="ibm-ace-server" parserXmlnscBuildTreeUsingXMLSchema="false" validateMaster="none">
+      <nodes xmi:type="ComIbmSOAPRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="378,94" wsdlFileName="customerDetails.wsdl" selectedPortType="CustomerDetailsPort" selectedBinding="CustomerDetailsPortSoap11" selectedOperation="customerDetails" selectedPort="CustomerDetailsPortSoap11" targetNamespace="http://ibm.com/CustomerDetails" useHTTPTransport="true" webServiceURL="http://localhost:8080/ws" sslProtocol="SSL" parserXmlnscBuildTreeUsingXMLSchema="false" validateMaster="none">
         <translation xmi:type="utility:ConstantString" string="SOAP Request"/>
       </nodes>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="155,172" mappingExpression="msl://{default}#postCreatecustomer_JSONtoSOAP">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="140,173" mappingExpression="msl://{default}#postCreatecustomer_JSONtoSOAP">
         <translation xmi:type="utility:ConstantString" string="JSONtoSOAP"/>
       </nodes>
       <nodes xmi:type="ComIbmSOAPExtract.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="534,172">
         <translation xmi:type="utility:ConstantString" string="SOAP Extract"/>
       </nodes>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="810,174" mappingExpression="msl://{default}#postCreatecustomer_ToJSON">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="806,179" mappingExpression="msl://{default}#postCreatecustomer_ToJSON">
         <translation xmi:type="utility:ConstantString" string="ToJSON"/>
       </nodes>
-      <nodes xmi:type="ComIbmHTTPHeader.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="664,169" httpResponseHeader="DeleteHeader" httpReplyHeader="Add">
+      <nodes xmi:type="ComIbmHTTPHeader.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="667,176" httpResponseHeader="DeleteHeader" httpReplyHeader="Add">
         <translation xmi:type="utility:ConstantString" string="HTTP Header"/>
         <nameValue4ReplyHeader name="Content-Type" value="application/json"/>
       </nodes>

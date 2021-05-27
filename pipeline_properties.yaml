@@ -10,8 +10,6 @@ integrationServer:
     policyproject:
       - ibm-rest-policy
     keystore:
-      - ibm-ace-server.kdb
-      - ibm-ace-server.sth
       - ibm-ace-server.jks
     truststore:
       - ibm-ca.jks
