@@ -8,7 +8,7 @@ integrationServer:
     serverconf:
       - ibm-rest-serverconf.yaml
     policyproject:
-      - ibm-rest-policy.yaml
+      - ibm-rest-policy
     keystore:
       - ibm-ace-server.kdb
       - ibm-ace-server.sth
