@@ -39,12 +39,12 @@
 					"basic": [
 						{
 							"key": "password",
-							"value": "changeit",
+							"value": "{{password}}",
 							"type": "string"
 						},
 						{
 							"key": "username",
-							"value": "aceuser",
+							"value": "{{username}}",
 							"type": "string"
 						}
 					]
