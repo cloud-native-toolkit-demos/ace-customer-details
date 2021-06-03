@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "create customer",
+			"name": "Create customer",
 			"event": [
 				{
 					"listen": "test",
@@ -25,6 +25,7 @@
 							"",
 							"pm.test(\"Customer ID is an UUID\", function () {",
 							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData.customerId)",
 							"    pm.expect(jsonData.customerId).to.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i);",
 							"});",
 							""
@@ -53,7 +54,129 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"service_header\": {\n    \"brand\": \"fuczeiljegap\"\n  },\n  \"personal_details\": {\n    \"name_details\": {\n      \"first_name\": \"Allen\",\n      \"last_name\": \"Valentini\"\n    },\n    \"contact_details\": {\n      \"phone\": \"(248) 393-6175\",\n      \"address\": \"6 Ceva Way\"\n    }\n  }\n}",
+					"raw": "{\n  \"service_header\": {\n    \"brand\": \"fuczeiljegap\"\n  },\n  \"personal_details\": {\n    \"name_details\": {\n      \"first_name\": \"Allen\",\n      \"last_name\": \"Valentini\"\n    },\n    \"contact_details\": {\n      \"phone\": \"555-5555555\",\n      \"address\": \"6 Ceva Way\"\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/createcustomerrestcallingws/v1/createcustomer",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"createcustomerrestcallingws",
+						"v1",
+						"createcustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "No Service Record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400 (Bad request)\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Body contains error concerning brand in service header\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"element 'out:brand' is not valid\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"personal_details\": {\n    \"name_details\": {\n      \"first_name\": \"Max\",\n      \"last_name\": \"John\"\n    },\n    \"contact_details\": {\n      \"phone\": \"555-5555555\",\n      \"address\": \"927 Liefa Boulevard\"\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/createcustomerrestcallingws/v1/createcustomer",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"createcustomerrestcallingws",
+						"v1",
+						"createcustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bad Phone Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400 (Bad request)\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Body contains error concerning phone number\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"element 'out:phone' is not valid\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"service_header\": {\n        \"brand\": \"IBM\"\n    },\n    \"personal_details\": {\n        \"name_details\": {\n            \"first_name\": \"Max\",\n            \"last_name\": \"John\"\n        },\n        \"contact_details\": {\n            \"phone\": \"(555) 5555555\",\n            \"address\": \"927 Liefa Boulevard\"\n        }\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"

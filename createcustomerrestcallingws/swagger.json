@@ -11,7 +11,16 @@
         "operationId" : "postCreatecustomer",
         "responses" : {
           "200" : {
-            "description" : "The operation was successful."
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/customer_details_response"
+            }
+          },
+          "400" : {
+            "description" : "The operation was not successful.",
+            "schema" : {
+              "$ref" : "#/definitions/fault"
+            }
           }
         },
         "consumes" : [ "application/json" ],
@@ -78,6 +87,20 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "fault" : {
+      "type" : "object",
+      "properties" : {
+        "error" : {
+          "type" : "string"
+        },
+        "details" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
           }
         }
       }
