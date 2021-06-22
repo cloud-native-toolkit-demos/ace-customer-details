@@ -135,7 +135,7 @@
             </elementProp>
             <elementProp name="influxdbUrl" elementType="Argument">
               <stringProp name="Argument.name">influxdbUrl</stringProp>
-              <stringProp name="Argument.value">http://localhost:8083/write?db=gatling</stringProp>
+              <stringProp name="Argument.value">http://influxdb-service.tools.svc.cluster.local:8086/write?db=gatling</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="application" elementType="Argument">
@@ -177,15 +177,6 @@
         </elementProp>
         <stringProp name="classname">org.apache.jmeter.visualizers.backend.influxdb.InfluxdbBackendListenerClient</stringProp>
       </BackendListener>
-      <hashTree/>
-      <com.github.johrstrom.listener.PrometheusListener guiclass="com.github.johrstrom.listener.gui.PrometheusListenerGui" testclass="com.github.johrstrom.listener.PrometheusListener" testname="Prometheus Listener" enabled="true">
-        <collectionProp name="prometheus.collector_definitions"/>
-      </com.github.johrstrom.listener.PrometheusListener>
-      <hashTree/>
-      <com.github.johrstrom.config.PrometheusMetricsConfig guiclass="com.github.johrstrom.config.gui.PrometheusMetricsConfigGui" testclass="com.github.johrstrom.config.PrometheusMetricsConfig" testname="Prometheus Metrics" enabled="true">
-        <collectionProp name="prometheus.collector_definitions"/>
-      </com.github.johrstrom.config.PrometheusMetricsConfig>
-      <hashTree/>
     </hashTree>
   </hashTree>
 </jmeterTestPlan>
