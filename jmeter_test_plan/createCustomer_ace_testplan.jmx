@@ -51,8 +51,8 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">create-customer-details-rest-https-dev.ace-prod-ref-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-east.containers.appdomain.cloud</stringProp>
-          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.domain">create-customer-details-rest-is.staging.svc</stringProp>
+          <stringProp name="HTTPSampler.port">7843</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">createcustomerrestcallingws/v1/createcustomer</stringProp>
