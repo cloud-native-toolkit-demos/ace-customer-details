@@ -3,15 +3,5 @@ integrationServer:
     - createcustomerrestcallingws
   releaseName: create-customer-details-rest
   endpoint-path: createcustomerrestcallingws/v1/createcustomer
-  configurations:
-    setdbparms:
-      - ibm-rest-dbparms.txt
-    serverconf:
-      - ibm-rest-serverconf.yaml
-    policyproject:
-      - ibm-rest-policy
-    keystore:
-      - ibm-ace-server.jks
-    truststore:
-      - ibm-ca.jks
+
 

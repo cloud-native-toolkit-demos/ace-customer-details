@@ -1,4 +1,2 @@
 # createCustomer_REST_V1
-createCustomer_REST_V1
-
-test change 2
+Example Applications for IBM App Connect (ACE)
